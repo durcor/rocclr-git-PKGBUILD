@@ -24,9 +24,9 @@ prepare() {
 
 build() {
     cmake -Wno-dev -B build \
-	-S "$srcdir/$_dirname" \
-	-DCMAKE_INSTALL_PREFIX='/opt/rocm/rocclr' \
-        -DOPENCL_DIR="$srcdir/ROCm-OpenCL-Runtime-roc-$pkgver"
+        -S "$srcdir/$pkgname" \
+		-DCMAKE_INSTALL_PREFIX='/opt/rocm/rocclr' \
+		-DOPENCL_DIR="$srcdir/../../rocm-opencl-runtime/src/ROCm-OpenCL-Runtime-rocm-3.7.0"
 
     make -C build
 }
