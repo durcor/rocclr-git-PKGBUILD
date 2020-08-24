@@ -33,9 +33,4 @@ build() {
 
 package() {
     DESTDIR="$pkgdir" make -C build install
-
-    sed -i "s@$srcdir/build/libamdrocclr_static.a@/opt/rocm/rocclr/lib/libamdrocclr_static.a@" \
-        "$srcdir/build/amdrocclr_staticTargets.cmake"
-    install -Dm644 "$srcdir/build/amdrocclr_staticTargets.cmake" \
-        "$pkgdir/opt/rocm/rocclr/lib/amdrocclr_staticTargets.cmake"
 }
